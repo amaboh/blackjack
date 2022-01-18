@@ -1,14 +1,15 @@
 body{
-    background-image: url("green.jpeg");
+    background-image: url("greenl.jpeg");
     background-size:auto;
     font-weight: bold;
+    text-align: center;
     font-size: 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 h1{
     color: goldenrod;
-    text-align: center;
+   
 }
 #messge-blk{
     text-align: center;
@@ -18,16 +19,22 @@ h1{
     
 }
 
-#message-el{
+#message-mi{
     font-style: italic;
+    display: flex;
 }
 
-#start-btn{
+button {
     background-color: goldenrod;
     border: none;
-    padding: 20px 40px;
+    padding: 10px 40px;
     border-radius: 5px;
     font-weight: bold;
-    color: none;
     font-size: 20px;
+    width: 250px;
+    
+}
+
+#new-btn{
+    margin-top: 10px;
 }
