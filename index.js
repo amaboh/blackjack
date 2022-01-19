@@ -7,6 +7,13 @@ let messageEl = document.getElementById("message-mi")
 let sumEl = document.querySelector("#sum-el")
 let cardsEl = document.querySelector("#cards-el")
 
+let player = {
+    name: "Ama",
+    chips: 150
+}
+
+let playersEl = document.getElementById("player-el")
+playersEl.textContent = player.name + ": $" +player.chips 
 
 function getRandomCard (){
 
@@ -26,31 +33,39 @@ function startG(){
     let  firstCard = getRandomCard()
     let  secondCard = getRandomCard()
     cards = [ firstCard, secondCard ]
-    let sum = firstCard + secondCard
+    sum = firstCard + secondCard
     renderGame()
 }
 
 
 function renderGame() {
-    sumEl.textContent = "Sum: " + sum
-    cardsEl.textContent = "Cards: " + cards[0] + " " + cards[1] 
-if (sum <= 20){
-    message = " DO you want to try another draw"
-} else if ( sum ===21 ) {
-    message = " You've got blackjack "
-    hasBlackJack = true
-} else {
-    message = "You've lost the game"
-    isAlive = false
-}
+   
+    cardsEl.textContent = "Cards: " 
+    for (i = 0; i < cards.length; i++) {
+    cardsEl.textContent += cards[i] + " "
+    }
 
-messageEl.textContent = message
+    sumEl.textContent = "Sum: " + sum
+    if (sum <= 20){
+    message = " DO you want to try another draw?"
+    isAlive=true
+    } else if ( sum ===21 ) {
+    message = " You've got blackjack! "
+    hasBlackJack = true
+    } else {
+
+    message = "You've lost the game!"
+    isAlive = false
+    }
+
+    messageEl.textContent = message
 }
 
 function newCard() {
+    if (isAlive === true && hasBlackJack === false) {
     let nuCard = getRandomCard()
     sum += nuCard
     cards.push(nuCard)
     renderGame()
-    nuCard = 0
+    }
 }
